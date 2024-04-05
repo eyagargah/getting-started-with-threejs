@@ -1,10 +1,9 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/Addons.js";
+import { OrbitControls } from "jsm/Addons.js";
 
 const w = window.innerWidth;
 const h = window.innerHeight;
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-
 renderer.setSize(w, h);
 
 document.body.appendChild(renderer.domElement);
@@ -14,6 +13,8 @@ const aspect = w / h;
 const near = 0.1;
 const far = 10;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
+const controls = new OrbitControls(camera , renderer.domElement);
 
 camera.position.z = 2;
 
